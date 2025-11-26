@@ -13,10 +13,10 @@ edges = [(0, 1), (1, 2), (2, 0),
 
 G.add_edges_from(edges)
 
-# Explicitly add all nodes (optional, but good practice)
+# Explicitly add all nodes 
 G.add_nodes_from([0, 1, 2, 3, 4, 5])
 
-# Node features: one-hot encoding (6 nodes → 6-dimensional identity matrix)
+# (6 nodes → 6-dimensional identity matrix)
 num_nodes = 6
 features = torch.eye(num_nodes, dtype=torch.float)  # Shape: [6, 6]
 
@@ -43,8 +43,9 @@ data = Data(
 data.train_mask = torch.tensor([True, True, True, True, False, False], dtype=torch.bool)
 data.test_mask  = torch.tensor([False, False, False, False, True, True], dtype=torch.bool)
 
-# (Optional) Print to verify everything is correct
+# Print to verify everything is correct
 print(data)
 print("Edge index:\n", data.edge_index)
 print("Node features shape:", data.x.shape)
+
 print("Labels:", data.y)
